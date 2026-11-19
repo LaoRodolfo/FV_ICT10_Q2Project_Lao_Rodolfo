@@ -1,0 +1,556 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meet the Creator | Student Showcase 2026</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 100px 25px 35px;
+            background:
+                radial-gradient(ellipse at top, #172c49 0%, transparent 55%),
+                #070b15;
+            color: #eaf5ff;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* TOP NAVIGATION */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 68px;
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: #101f35;
+            border-bottom: 1px solid #315b96;
+            box-shadow: 0 4px 20px #00000030;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            color: #68f7ff;
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            color: #c6d7ed;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #60f5ff;
+            text-shadow: 0 0 10px #00d9ff;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            width: 100%;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .top-label {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 25px;
+            color: #69f5ff;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #61ffe1;
+            box-shadow: 0 0 12px #61ffe1;
+        }
+
+        .profile-card {
+            overflow: hidden;
+            border: 1px solid #273c58;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #121d30, #0c1220);
+            box-shadow: 0 18px 50px #00000055,
+                        0 0 25px #00d9ff0b;
+        }
+
+        /* PROFILE INTRODUCTION */
+        .hero {
+            position: relative;
+            padding: 45px 40px;
+            text-align: center;
+            border-bottom: 1px solid #273c58;
+            background:
+                radial-gradient(circle at center, #193957 0%, transparent 70%);
+        }
+
+        .profile-icon {
+            width: 90px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 22px;
+            border: 1px solid #4df4ff;
+            border-radius: 22px;
+            background: #101f35;
+            box-shadow: 0 0 28px #00d9ff24,
+                        inset 0 0 20px #00d9ff13;
+            color: #68f7ff;
+            font-size: 35px;
+            font-weight: 800;
+            transform: rotate(-5deg);
+        }
+
+        /* CREATOR PHOTO */
+        .creator-photo {
+            display: block;
+            width: 150px;
+            height: 150px;
+            margin: 25px auto 20px;
+            object-fit: cover;
+            border: 2px solid #5ef5ff;
+            border-radius: 50%;
+            box-shadow: 0 0 25px #00d9ff35;
+        }
+
+        .hero-label {
+            color: #69f5ff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .hero h1 {
+            margin: 15px 0 12px;
+            color: #eaf5ff;
+            font-size: clamp(32px, 7vw, 48px);
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            color: #60f5ff;
+            text-shadow: 0 0 8px #00d9ff,
+                         0 0 20px #00d9ff80;
+        }
+
+        .hero p {
+            max-width: 580px;
+            margin: 0 auto;
+            color: #aabbd3;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        /* PROFILE CONTENT */
+        .profile-content {
+            padding: 35px 40px;
+        }
+
+        .section-heading {
+            margin: 0 0 15px;
+            color: #62eefa;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .intro {
+            margin-bottom: 35px;
+            color: #b5c5d9;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        /* INFORMATION CARDS */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+
+        .detail-card {
+            position: relative;
+            padding: 23px;
+            border: 1px solid #30435e;
+            border-radius: 10px;
+            background: linear-gradient(145deg, #14243a, #0b1423);
+            box-shadow: 0 8px 22px #00000025;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-4px);
+            border-color: #55eefa;
+        }
+
+        .detail-number {
+            margin-bottom: 12px;
+            color: #60f5ff;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .detail-card h3 {
+            margin: 0 0 12px;
+            color: #eaf5ff;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .detail-card p {
+            margin: 0;
+            color: #899bb6;
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        /* QUOTE CARDS */
+        .quotes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .quote-section {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .quote-photo {
+            width: 100%;
+            height: 100%;
+            min-height: 240px;
+            object-fit: cover;
+            object-position: center;
+            border: 1px solid #30435e;
+            border-radius: 10px;
+            box-shadow: 0 0 22px #00d9ff12;
+        }
+
+        .quote-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 28px;
+            border: 1px solid #30435e;
+            border-left: 3px solid #5ef5ff;
+            border-radius: 8px;
+            background: #080f1a;
+            box-shadow: 0 0 20px #00d9ff0b;
+        }
+
+        .quote-box h3 {
+            margin: 0 0 18px;
+            color: #62eefa;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .quote-box p {
+            margin: 0;
+            color: #eaf5ff;
+            font-size: 21px;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+
+        .quote-author {
+            margin-top: 18px;
+            color: #899bb6;
+            font-size: 11px;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* FOOTER */
+        .footer {
+            padding: 25px;
+            border-top: 1px solid #273c58;
+            color: #60728c;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .footer span {
+            color: #62eefa;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 600px) {
+            .navbar {
+                justify-content: center;
+                padding: 12px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 10px;
+            }
+
+            .hero {
+                padding: 35px 22px;
+            }
+
+            .profile-content {
+                padding: 28px 22px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-section {
+                grid-template-columns: 1fr;
+            }
+
+            .quote-photo {
+                height: 300px;
+                min-height: 0;
+            }
+
+            .quote-box {
+                padding: 22px;
+            }
+
+            .quote-box p {
+                font-size: 19px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">ICT FAIRVIEW</a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="element-checker.html">Element Checker</a>
+            <a href="club-members.html">Club Members</a>
+            <a href="meet-the-creator.html">Creator</a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <div class="top-label">
+            <span class="status-dot"></span>
+            STUDENT SHOWCASE 2026
+        </div>
+
+        <section class="profile-card">
+
+            
+            <header class="hero">
+
+                <div class="profile-icon">
+                    R
+                </div>
+
+                <img
+                    class="creator-photo"
+                    src="https://lh3.googleusercontent.com/a/ACg8ocK2gjLMCr4HNSVQtrZXrW3VZouRKyZmae9omlwSuR6fmec9jNMR=s360-c-no"
+                    alt="Photo of Rodolfo C. Lao III"
+                >
+
+                <div class="hero-label">
+                    THE PERSON BEHIND THE PROJECT
+                </div>
+
+                <h1>MEET THE <span>CREATOR.</span></h1>
+
+                <p>
+                    Hello! I'm Rodolfo C. Lao III, a Grade 10 student
+                    from 10-Ruby. Welcome to my Student Showcase 2026!
+                </p>
+
+            </header>
+
+            <section class="profile-content">
+
+                
+                <p class="section-heading">
+                    01 / ABOUT ME
+                </p>
+
+                <p class="intro">
+                    I am a curious and enthusiastic learner who enjoys
+                    exploring different subjects and discovering new
+                    ways to express ideas. I enjoy combining creativity
+                    and logical thinking, whether through writing,
+                    programming, reading, or learning about science.
+                    I believe that every experience is an opportunity
+                    to learn something meaningful.
+                </p>
+
+                
+                <p class="section-heading">
+                    02 / GET TO KNOW ME
+                </p>
+
+                <div class="details-grid">
+
+                    <div class="detail-card">
+                        <div class="detail-number">01 / INTERESTS</div>
+                        <h3>My Interests</h3>
+                        <p>
+                            Science, technology, literature, philosophy,
+                            writing, public speaking, and pageantry.
+                        </p>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-number">02 / HOBBIES</div>
+                        <h3>My Hobbies</h3>
+                        <p>
+                            Reading, writing, coding, exploring new
+                            topics, and participating in creative
+                            activities.
+                        </p>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-number">03 / ASPIRATIONS</div>
+                        <h3>My Dreams</h3>
+                        <p>
+                            To pursue a career in medicine, continue
+                            learning, and make a meaningful difference
+                            in other people's lives.
+                        </p>
+                    </div>
+
+                    <div class="detail-card">
+                        <div class="detail-number">04 / PERSONAL GROWTH</div>
+                        <h3>My Goals</h3>
+                        <p>
+                            To become a well-rounded individual who
+                            balances academic growth, creativity,
+                            compassion, and curiosity.
+                        </p>
+                    </div>
+
+                </div>
+
+                
+                <p class="section-heading">
+                    03 / WORDS TO LIVE BY
+                </p>
+
+                <div class="quotes-container">
+
+                    
+                    <div class="quote-section">
+
+                        <img
+                            class="quote-photo"
+                            src="https://media.philstar.com/photos/2023/02/17/miss-universe-20222023-01-1514-44-17-1_2023-02-17_14-42-13.jpg"
+                            alt="R'Bonney Nola Gabriel"
+                        >
+
+                        <div class="quote-box">
+
+                            <h3>QUOTE NO. 01</h3>
+
+                            <p>
+                                "If not now, then when?"
+                            </p>
+
+                            <div class="quote-author">
+                                — R'Bonney Nola Gabriel, Miss Universe 2022
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                
+                    <div class="quote-section">
+
+                        <img
+                            class="quote-photo"
+                            src="https://www.harpersbazaararabia.com/wp-content/uploads/sites/7/cloud/2023/01/16/hba-featured-dimensions.png"
+                            alt="Amanda Dudamel"
+                        >
+
+                        <div class="quote-box">
+
+                            <h3>QUOTE NO. 02</h3>
+
+                            <p>
+                                "To leave an impact stamp in every single action we take."
+                            </p>
+
+                            <div class="quote-author">
+                                — Amanda Dudamel, Miss Universe 2022 1st Runner-Up
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            
+            <footer class="footer">
+                <span>ICT-10 FAIRVIEW</span> &nbsp; / &nbsp;
+                STUDENT SHOWCASE 2026
+
+                <p>BY RODOLFO C. LAO III / 10-RUBY</p>
+            </footer>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
